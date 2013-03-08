@@ -6,7 +6,7 @@ for ``L.FeatureGroup`` objects.
 
 Requires the Magnificient [RTree.js](https://github.com/imbcmdth/RTree)
 
-Check out the [live demo](http://bl.ocks.org/leplatrem/5115239/919ab976af80cbd73914ae36d21fedead2e6274d)
+Check out the [live demo](http://bl.ocks.org/leplatrem/5115239/243ff5bb98c017423ccd2e4973fe96ca5e9519e3)
 
 Usage
 -----
