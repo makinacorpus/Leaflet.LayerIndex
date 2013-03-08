@@ -6,6 +6,8 @@ for ``L.FeatureGroup`` objects.
 
 Requires the Magnificient [RTree.js](https://github.com/imbcmdth/RTree)
 
+Check out the [live demo](http://bl.ocks.org/leplatrem/5115239/919ab976af80cbd73914ae36d21fedead2e6274d)
+
 Usage
 -----
 
@@ -25,6 +27,7 @@ Usage
         var shown = map.search(map.getBounds());
         console.log(shown.length + ' objects shown.');
     });
+
 ```
 
 
