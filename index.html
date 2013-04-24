@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet.LayerIndex</title>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+	<script>L_PREFER_CANVAS = true;</script>
+	<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+    <script src="rtree.js"></script>
+    <script src="leaflet.layerindex.js"></script>
+    <script src="infocontrol.js"></script>
+	<style>
+		#map { 
+            position: absolute;
+            top:0;
+            left: 0;
+            right: 0;
+            bottom:0;
+        }
+        
+        .leaflet-infocontrol {
+            font-size: 25px !important;
+        }
+	</style>
+</head>
+<body>
+	<div id="map"></div>
+
+	<script type="text/javascript">
+		L.Map.include(L.LayerIndexMixin);
+		
+		var map = L.map('map');
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+        map.fitWorld();
+        map.addControl(new L.Control.Information());
+
+        for (var i=0; i<5000; i++) {
+            var lat = Math.random() * 170 - 85
+              , lng = Math.random() * 350 - 175;
+            var layer = L.circleMarker(L.latLng([lat, lng]), {radius:1}).addTo(map);
+            map.indexLayer(layer);
+        }
+
+        map.fire('moveend');
+	</script>
+</body>
+</html>
