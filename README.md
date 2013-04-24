@@ -6,7 +6,7 @@ for ``L.FeatureGroup`` objects.
 
 Requires the Magnificient [RTree.js](https://github.com/imbcmdth/RTree)
 
-Check out the [live demo](http://bl.ocks.org/leplatrem/5115239/243ff5bb98c017423ccd2e4973fe96ca5e9519e3)
+Check out the [live demo](http://makinacorpus.github.io/Leaflet.LayerIndex/)
 
 Usage
 -----
