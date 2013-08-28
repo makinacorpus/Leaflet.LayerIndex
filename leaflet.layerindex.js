@@ -16,15 +16,15 @@ L.LayerIndexMixin = {
 
     search: function (bounds) {
         var rtbounds = this._rtbounds(bounds);
-        return this._rtree && this._rtree.search(rtbounds) || [];
+        return this._rtree ? this._rtree.search(rtbounds) : [];
     },
 
     searchBuffer: function (latlng, radius) {
         /* Caution: radius is in degrees */
-        var around = L.latLngBounds(L.latLng(latlng.lat - radius,
-                                             latlng.lng - radius),
-                                    L.latLng(latlng.lat + radius,
-                                             latlng.lng + radius));
+        var around = L.latLngBounds([latlng.lat - radius,
+                                     latlng.lng - radius],
+                                    [latlng.lat + radius,
+                                     latlng.lng + radius]);
         return this.search(around);
     },
 
