@@ -79,5 +79,5 @@ L.LayerIndexMixin = {
                 y: bounds.getSouthWest().lat,
                 w: bounds.getSouthEast().lng - bounds.getSouthWest().lng,
                 h: bounds.getNorthWest().lat - bounds.getSouthWest().lat};
-    },
+    }
 };
