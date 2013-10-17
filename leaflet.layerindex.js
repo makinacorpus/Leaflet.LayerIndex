@@ -38,8 +38,8 @@ L.LayerIndexMixin = {
         this._rtree.insert(this._rtbounds(bounds), layer);
     },
 
-    unindexLayer: function (bounds, layer) {
-        /* If layer is not provided, does wide-area remove */
+    unindexLayer: function (layer) {
+        var bounds = this._layerBounds(layer);
         this._rtree.remove(this._rtbounds(bounds), layer);
     },
 
