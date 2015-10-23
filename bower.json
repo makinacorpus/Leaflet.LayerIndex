@@ -17,8 +17,8 @@
     "Index"
   ],
   "dependencies": {
-    "leaflet": "*",
-    "rtree": "*"
+    "leaflet": ">0.7.0",
+    "rtree": "~1.4.2"
   },
   "license": "MIT",
   "ignore": [
