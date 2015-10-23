@@ -1,6 +1,6 @@
 {
     "name": "leaflet-layerindex"
-  , "version": "0.0.1"
+  , "version": "0.0.2"
   , "description": "Spatial index of Leaflet layer objects using RTree.js"
   , "keywords": ["Leaflet", "GIS", "RTree"]
   , "main": "leaflet.layerindex.js"

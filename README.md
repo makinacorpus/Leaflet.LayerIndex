@@ -60,6 +60,18 @@ Usage
 ```
 
 
+Changelog
+-------
+
+### 0.0.2
+
+* Add bower.json
+
+### 0.0.1
+
+* Initial version
+
+
 Authors
 -------
 
