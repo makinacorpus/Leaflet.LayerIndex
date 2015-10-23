@@ -1,0 +1,31 @@
+{
+  "name": "leaflet.layerindex",
+  "version": "0.0.1",
+  "homepage": "https://github.com/makinacorpus/Leaflet.LayerIndex",
+  "authors": [
+    { "name": "Makina Corpus", "homepage": "http://makina-corpus.com/" }
+  ],
+  "description": "Spatial index of layer objects using RTree.js",
+  "main": "leaflet.layerindex.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "Leaflet",
+    "GIS",
+    "RTree",
+    "Index"
+  ],
+  "dependencies": {
+    "leaflet": "*",
+    "rtree": "*"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
