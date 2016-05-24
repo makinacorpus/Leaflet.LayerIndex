@@ -42,10 +42,10 @@ L.LayerIndexMixin = {
         var bounds;
         if (options && options.bounds) {
             bounds = options.bounds;
-        } else if (options && options.latLng) {
-            bounds = new L.LatLngBounds(options.latLng, options.latLng);
-        } else if (options && options.latLngs) {
-            bounds = new L.LatLngBounds(options.latLngs);
+        } else if (options && options.latlng) {
+            bounds = new L.LatLngBounds(options.latlng, options.latlng);
+        } else if (options && options.latlngs) {
+            bounds = new L.LatLngBounds(options.latlngs);
         } else {
             bounds = this._layerBounds(layer);
         }
