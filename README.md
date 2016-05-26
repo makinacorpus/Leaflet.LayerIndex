@@ -32,12 +32,9 @@ Usage
     map.unindexLayer(layer);
 ```
 
-`map.unindexLayer()` function accepts an `options` object as an optional second parameter to defined the bounds of the layer. It could accept:
-
+`map.unindexLayer()` function accepts an `options` object as an optional second parameter to define the bounds to be removed from the index. It should have one of the following attributes:
 * `options.bounds`  - a leaflet latLngBounds object
-
 * `options.latlng`  - a leaflet latLng object
-
 * `options.latlngs` - an array of leaflet latLng objects
 
 If no option is provided, the function will use the bounds of the layer's geometry.
