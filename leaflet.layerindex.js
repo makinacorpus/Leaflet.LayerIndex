@@ -38,8 +38,18 @@ L.LayerIndexMixin = {
         this._rtree.insert(this._rtbounds(bounds), layer);
     },
 
-    unindexLayer: function (layer) {
-        var bounds = this._layerBounds(layer);
+    unindexLayer: function (layer, options) {
+        var bounds;
+        if (options && options.bounds) {
+            bounds = options.bounds;
+        } else if (options && options.latlng) {
+            bounds = new L.LatLngBounds(options.latlng, options.latlng);
+        } else if (options && options.latlngs) {
+            bounds = new L.LatLngBounds(options.latlngs);
+        } else {
+            bounds = this._layerBounds(layer);
+        }
+
         this._rtree.remove(this._rtbounds(bounds), layer);
     },
 
