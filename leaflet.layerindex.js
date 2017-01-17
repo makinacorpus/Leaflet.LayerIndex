@@ -1,8 +1,7 @@
 /*
- * Spatial index of layer objects using RTree.js
- * https://github.com/imbcmdth/RTree
+ * Spatial index of layer objects using RBush
+ * https://github.com/mourner/rbush
  */
-
 
 // Backport of Leaflet 0.5
 if (typeof L.LatLngBounds.prototype.isValid != 'function') {
@@ -11,12 +10,18 @@ if (typeof L.LatLngBounds.prototype.isValid != 'function') {
     };
 }
 
-
 L.LayerIndexMixin = {
 
     search: function (bounds) {
         var rtbounds = this._rtbounds(bounds);
-        return this._rtree ? this._rtree.search(rtbounds) : [];
+
+        if (!this._rtree) {
+            return [];
+        }
+
+        return this._rtree.search(rtbounds).map(function(item) {
+          return item.layer;
+        });
     },
 
     searchBuffer: function (latlng, radius) {
@@ -34,8 +39,12 @@ L.LayerIndexMixin = {
 
         var bounds = this._layerBounds(layer);
 
-        if (!this._rtree) this._rtree = new RTree();
-        this._rtree.insert(this._rtbounds(bounds), layer);
+        if (!this._rtree) this._rtree = new rbush();
+
+        var rbounds = this._rtbounds(bounds);
+        rbounds.layer = layer;
+
+        this._rtree.insert(rbounds);
     },
 
     unindexLayer: function (layer, options) {
@@ -50,7 +59,12 @@ L.LayerIndexMixin = {
             bounds = this._layerBounds(layer);
         }
 
-        this._rtree.remove(this._rtbounds(bounds), layer);
+        var rbounds = this._rtbounds(bounds);
+        rbounds.layer = layer;
+
+        this._rtree.remove(rbounds, function(a, b) {
+          return L.stamp(a.layer) === L.stamp(b.layer);
+        });
     },
 
     _layerBounds: function (layer) {
@@ -85,9 +99,14 @@ L.LayerIndexMixin = {
     },
 
     _rtbounds: function (bounds) {
-        return {x: bounds.getSouthWest().lng,
-                y: bounds.getSouthWest().lat,
-                w: bounds.getSouthEast().lng - bounds.getSouthWest().lng,
-                h: bounds.getNorthWest().lat - bounds.getSouthWest().lat};
+        var southwest = bounds.getSouthWest();
+        var northeast = bounds.getNorthEast();
+
+        return {
+            maxY: northeast.lat,
+            minY: southwest.lat,
+            maxX: northeast.lng,
+            minX: southwest.lng
+        };
     }
 };
