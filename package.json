@@ -2,7 +2,7 @@
     "name": "leaflet-layerindex"
   , "version": "0.0.2"
   , "description": "Spatial index of Leaflet layer objects using RTree.js"
-  , "keywords": ["Leaflet", "GIS", "RTree"]
+  , "keywords": ["Leaflet", "GIS", "RBush"]
   , "main": "leaflet.layerindex.js"
   , "bugs": {
     "url": "https://github.com/makinacorpus/Leaflet.LayerIndex/issues"
@@ -16,6 +16,6 @@
   }
   , "dependencies": {
     "leaflet": "*",
-    "rtree": "*"
+    "rbush": "*"
   }
 }

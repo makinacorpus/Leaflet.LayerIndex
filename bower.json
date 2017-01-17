@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "leaflet": ">0.7.0",
-    "rtree": "~1.4.2"
+    "rbush-bower": "~2.0.1"
   },
   "license": "MIT",
   "ignore": [
