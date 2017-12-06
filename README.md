@@ -57,6 +57,13 @@ If no option is provided, the function will use the bounds of the layer's geomet
 
             // Parent initialization
             L.GeoJSON.prototype.initialize.call(this, geojson, options);
+        },
+
+        removeLayer: function (layer) {
+          if (this.hasLayer(layer)) {
+            this.unindexLayer(layer)
+          }
+          return window.L.GeoJSON.prototype.removeLayer.call(this, layer)
         }
     });
 
