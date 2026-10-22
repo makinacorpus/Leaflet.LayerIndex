@@ -78,6 +78,11 @@ If no option is provided, the function will use the bounds of the layer's geomet
 Changelog
 -------
 
+### 0.0.3
+
+* Set Leaflet as a peer dependency (`>=0.7 <2`)
+* `unindexLayer()` accepts an `options` object with `bounds`, `latlng` or `latlngs` (#2, thanks haoliangyu)
+
 ### 0.0.2
 
 * Add bower.json
