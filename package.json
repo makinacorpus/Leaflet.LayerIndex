@@ -15,7 +15,9 @@
   , "scripts": {
   }
   , "dependencies": {
-    "leaflet": "*",
     "rtree": "*"
+  }
+  , "peerDependencies": {
+    "leaflet": ">=0.7 <2"
   }
 }
